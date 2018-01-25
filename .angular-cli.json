@@ -19,14 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
-        "../node_modules/bootstrap/scss/bootstrap.scss"
+        "../node_modules/tether/dist/css/tether.min.css",
+        "styles.scss"
       ],
       "scripts": [
-        "../node_modules/bootstrap/dist/js/bootstrap.bundle.js",
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/popper.js/dist/popper.min.js"
-
+        "../node_modules/tether/dist/js/tether.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
