@@ -7,7 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import {app_routing} from './app.routes';
-
+import {MusicService} from './services/music.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,12 @@ import {app_routing} from './app.routes';
   ],
   imports: [
     BrowserModule,
-    app_routing
+    app_routing,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MusicService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
