@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MusicService {
+  artists;
 
   constructor(public http: HttpClient) {
     console.log('Musc service Ready!');
@@ -14,6 +16,10 @@ export class MusicService {
       'Authorization': 'Bearer BQABRRGP4dInnaOokfRGdQcTXLcxQTNayGToCX57POupC6rXtQQyVbnZnTL2f3bYGRzft4_b1Yo2toDCayM'
     });
 
-    return this.http.get(url, {headers});
+    return this.http.get(url, {headers}).map((res: any) => {
+      this.artists = res.artists.items;
+
+      return this.artists;
+    });
   }
 }
