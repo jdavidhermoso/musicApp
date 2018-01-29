@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import {app_routing} from './app.routes';
 import {MusicService} from './services/music.service';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     app_routing,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     MusicService

@@ -1,3 +1,24 @@
-<p>
-  search works!
-</p>
+<div class="ma-search-container pt-3">
+  <div class="row">
+    <div class="col-md-3 ma-search-form-container">
+      <label>
+        Search artist
+      </label>
+      <input type="text" placeholder="Search artist..."
+             class="form-control"
+             [(ngModel)]="searchTerm"
+             (keyup)="searchArtist()">
+
+    </div>
+    <div class="col-md-9 ma-search-results-container" *ngIf="searchTerm.length > 1">
+      <h2> {{ searchTerm }} </h2>
+      <hr>
+
+      <div class="ma-search-results-list">
+        <div class="ma-search-result-item" *ngFor="let item of artists;">
+          {{item.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

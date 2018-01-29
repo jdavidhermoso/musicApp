@@ -10,10 +10,10 @@ export class MusicService {
     console.log('Musc service Ready!');
   }
 
-  getArtists() {
-    const url = 'https://api.spotify.com/v1/search?query=simple+plan&type=artist&market=US&offset=0&limit=20';
+  getArtists(artist) {
+    const url = `https://api.spotify.com/v1/search?query=${artist}&type=artist&market=US&offset=0&limit=20`;
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQABRRGP4dInnaOokfRGdQcTXLcxQTNayGToCX57POupC6rXtQQyVbnZnTL2f3bYGRzft4_b1Yo2toDCayM'
+      'Authorization': 'Bearer BQAH_HnIgIiTkyE1y2HEizi8E3eRVjGoamyE_SdDCn1NDB1JxTSsmUUUQ8fvTQSr7pdCRzTeQk7ItjEA_X8'
     });
 
     return this.http.get(url, {headers}).map((res: any) => {

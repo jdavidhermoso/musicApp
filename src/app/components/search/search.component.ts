@@ -9,9 +9,16 @@ import {MusicService} from '../../services/music.service';
 export class SearchComponent {
   artists;
 
+  searchTerm: string = '';
+
   constructor(public _musicService: MusicService) {
-    this._musicService.getArtists().subscribe(artists => {
-      console.log(artists);
-    });
+  }
+
+  searchArtist() {
+    if (this.searchTerm) {
+      this._musicService.getArtists(this.searchTerm).subscribe(artists => {
+        this.artists = artists;
+      });
+    }
   }
 }
