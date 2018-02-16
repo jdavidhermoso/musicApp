@@ -13,7 +13,7 @@ export class MusicService {
   getArtists(artist) {
     const url = `https://api.spotify.com/v1/search?query=${artist}&type=artist&market=US&offset=0&limit=20`;
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQAH_HnIgIiTkyE1y2HEizi8E3eRVjGoamyE_SdDCn1NDB1JxTSsmUUUQ8fvTQSr7pdCRzTeQk7ItjEA_X8'
+      'Authorization': 'Bearer BQBjjCU1_FSENeiAZrrErbt8QmmSCrcS2EXfppANX-NFJUhszySq4csuWGtKJ_0j120tDGUa_V58up6nOho'
     });
 
     return this.http.get(url, {headers}).map((res: any) => {

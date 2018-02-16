@@ -10,13 +10,15 @@ import {app_routing} from './app.routes';
 import {MusicService} from './services/music.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { PicturenotfoundPipe } from './pipes/picturenotfound.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    NavbarComponent
+    NavbarComponent,
+    PicturenotfoundPipe
   ],
   imports: [
     BrowserModule,

@@ -15,8 +15,15 @@
       <hr>
 
       <div class="ma-search-results-list">
-        <div class="ma-search-result-item" *ngFor="let item of artists;">
-          {{item.name}}
+        <div class="row">
+          <div class="col-md-3 ma-search-results-item-container" *ngFor="let artist of artists;">
+            <div class="ma-search-results-item">
+              <img [src]="artist.images | picturenotfound" alt="" title="" class="img-thumbnail">
+              <h2>
+                {{artist.name}}
+              </h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>
