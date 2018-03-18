@@ -12,7 +12,7 @@ export class MusicService {
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({
-      'Authorization': 'Bearer BQAs0wQwhBSVFVO-HkKbo8_D5TJEbexvOsXJDmolnNBJZPyoFf2vaXFmj4J4OyrGfF6xvM71HRhauylWMIA'
+      'Authorization': 'Bearer BQAUjexa5042H25R-CXoOI9tP1o4GzicIat7RY5aXVBO__fcL-ZThJasJ99rEwRsO4BdC0rhxfP-uP4JUXs'
     });
   }
 
@@ -30,7 +30,17 @@ export class MusicService {
   getSingleArtist(id: string) {
     const url = this.buildAPIUrl(`artists/${id}`);
     const headers = this.getHeaders();
+    return this.http.get(url, {headers});
+  }
 
-      return this.http.get(url, {headers});
+  getTopTracks(id: string) {
+    const url = this.buildAPIUrl(`artists/${id}/top-tracks`);
+    const headers = this.getHeaders();
+    return this.http.get(url, {
+      headers: headers,
+      params: {
+        country: 'ES'
+      }
+    });
   }
 }

@@ -1,3 +1,38 @@
-<p>
-  {{artist.name}}
-</p>
+<div class="ma-artist-container">
+  <div class="pt-3 pb-3">
+    <button type="button" class="btn btn-secondary" [routerLink]="['/search']">
+      Back
+    </button>
+  </div>
+  <h2>
+    {{artist.name}}
+  </h2>
+  <div class="row">
+    <div class="ma-artist-info col-md-4">
+      <div class="card">
+        <img class="card-img-top" [src]="artist.images | picturenotfound" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-dark"> {{artist.name}} </h5>
+          <a [href]="artist.external_urls?.spotify" target="_blank" class="btn btn-primary">
+            Visit artist in Spotify
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ma-artist-top-tracks col-md-8">
+      <ul class="list-group">
+        <li class="list-group-item text-dark" *ngFor="let track of artist.topTracks">
+          <span class="ma-artist-track-picture">
+            <img class="ma-artist-track-picture" [src]="track.album.images | picturenotfound" /> </span>
+          <span class="font-weight-bold"> {{track.name}} </span> -
+          {{track.album.name}}
+          <audio class="ma-artist-track-preview-player" controls>
+            <source [src]="track.preview_url">
+            Please, upload your web browser
+          </audio>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

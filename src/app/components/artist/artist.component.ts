@@ -14,11 +14,21 @@ export class ArtistComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.map(params => params.id)
+    this.activatedRoute.params
+      .map(params => params.id)
       .subscribe((id) => {
         this.musicService.getSingleArtist(id).subscribe(artist => {
           this.artist = artist;
         });
+
+        this.musicService.getTopTracks(id)
+          .map((res: any) => res.tracks)
+          .subscribe(artistTopTracks => {
+            this.artist.topTracks = artistTopTracks;
+            console.log(this.artist.topTracks);
+          });
+
+
       });
   }
 }
