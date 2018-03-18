@@ -4,22 +4,33 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MusicService {
-  artists;
+  apiBaseURL = 'https://api.spotify.com/v1/';
 
   constructor(public http: HttpClient) {
     console.log('Musc service Ready!');
   }
 
+  private getHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      'Authorization': 'Bearer BQAs0wQwhBSVFVO-HkKbo8_D5TJEbexvOsXJDmolnNBJZPyoFf2vaXFmj4J4OyrGfF6xvM71HRhauylWMIA'
+    });
+  }
+
+  private buildAPIUrl(endPoint): string {
+    return `${this.apiBaseURL}${endPoint}`;
+  }
+
   getArtists(artist) {
-    const url = `https://api.spotify.com/v1/search?query=${artist}&type=artist&market=US&offset=0&limit=20`;
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQBjjCU1_FSENeiAZrrErbt8QmmSCrcS2EXfppANX-NFJUhszySq4csuWGtKJ_0j120tDGUa_V58up6nOho'
+    const url = this.buildAPIUrl(`search?query=${artist}&type=artist&market=US&offset=0&limit=20`);
+    return this.http.get(url, {headers: this.getHeaders()}).map((res: any) => {
+      return res.artists.items;
     });
+  }
 
-    return this.http.get(url, {headers}).map((res: any) => {
-      this.artists = res.artists.items;
+  getSingleArtist(id: string) {
+    const url = this.buildAPIUrl(`artists/${id}`);
+    const headers = this.getHeaders();
 
-      return this.artists;
-    });
+      return this.http.get(url, {headers});
   }
 }

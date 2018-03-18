@@ -11,6 +11,7 @@ import {MusicService} from './services/music.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { PicturenotfoundPipe } from './pipes/picturenotfound.pipe';
+import { ArtistComponent } from './components/artist/artist.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PicturenotfoundPipe } from './pipes/picturenotfound.pipe';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    PicturenotfoundPipe
+    PicturenotfoundPipe,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
