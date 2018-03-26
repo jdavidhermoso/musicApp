@@ -25,8 +25,8 @@ export class MusicService {
 
   getArtists(artist) {
     this.getRequestToken();
-
     const url = this.buildAPIUrl(`search?query=${artist}&type=artist&market=US&offset=0&limit=20`);
+    // TODO: Get access token from Spotify API if don't have it
     return this.http.get(url, {headers: this.getHeaders()}).map((res: any) => {
       return res.artists.items;
     });
@@ -40,21 +40,21 @@ export class MusicService {
       client_id: '2db761b246784f38a6df096793471e9b',
       client_secret: 'cbf19157318b45cb921e71a933398d30'
     }).map((res: any) => {
-      console.log('access token!');
-      console.log(res);
       return res;
-    }).subscribe(ans => {
-      console.log('a');
+    }).subscribe(data => {
+      this.requestToken = data.access_token;
     });
   }
 
   getSingleArtist(id: string) {
+    // TODO: Get access token from Spotify API if don't have it
     const url = this.buildAPIUrl(`artists/${id}`);
     const headers = this.getHeaders();
     return this.http.get(url, {headers});
   }
 
   getTopTracks(id: string) {
+    // TODO: Get access token from Spotify API if don't have it
     const url = this.buildAPIUrl(`artists/${id}/top-tracks`);
     const headers = this.getHeaders();
     return this.http.get(url, {
