@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { PicturenotfoundPipe } from './pipes/picturenotfound.pipe';
 import { ArtistComponent } from './components/artist/artist.component';
+import { SafeDomPipe } from './pipes/safe-dom.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ArtistComponent } from './components/artist/artist.component';
     SearchComponent,
     NavbarComponent,
     PicturenotfoundPipe,
-    ArtistComponent
+    ArtistComponent,
+    SafeDomPipe
   ],
   imports: [
     BrowserModule,
