@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MusicService} from '../../services/music.service';
-
 @Component({
   selector: 'app-artist',
   templateUrl: './artist.component.html',

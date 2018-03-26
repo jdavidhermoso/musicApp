@@ -12,7 +12,7 @@ export class MusicService {
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({
-      'Authorization': 'Bearer BQDZc9odaD-PG89xKTMCf7EH-SA3CCKSNvJA5GfAW6pUWh0jochDD5lA4n5nSHi2yn2aFHkSHhlCdy6p8mk'
+      'Authorization': 'Bearer BQA4GjHr-zpxKVzCIEjRe6d74VcQRvDRBwivj72hhRYkdsw2rOCQOwNhjUSXwmQZ3Loai5XrDAQBnNpgAzk'
     });
   }
 

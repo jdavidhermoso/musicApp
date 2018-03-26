@@ -1,3 +1,9 @@
+.ma-artist-info-picture {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto
+}
+
 .ma-artist-track-preview-player {
   display: inline-block;
   vertical-align: middle;
@@ -6,4 +12,12 @@
 .ma-artist-track-picture {
   max-height: 50px;
 }
+
+.ma-artist-track-preview-player {
+  height: 80px;
+  border: none;
+  vertical-align: middle;
+}
+
+
 
